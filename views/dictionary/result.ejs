@@ -1,0 +1,26 @@
+<% include ../partials/otherHeader%>
+<% var counter= 0;%>
+<h1 class="rainbow-text" ><u><%- keyword.charAt(0).toUpperCase() + keyword.slice(1)%> Definitions</u></h1>
+<%try{%>
+<div class= "container">
+<% JSON.parse(data).forEach((obj)=>{%>
+	<%counter++;%>	
+	<p style="text-transform: uppercase;" class="lead itemList"><b><%= counter%>. <%= JSON.stringify(obj.meta.id).substring(1,JSON.stringify(obj.meta.id).length - 1 );%></b></p>
+		<% obj.def[0].sseq[0].forEach((sense)=>{%>
+						<p style="text-transform: capitalize;" class="lead itemList"><%- JSON.stringify(sense[1].dt[0][1]).slice(JSON.stringify(sense[1].dt[0][1]).indexOf('}') + 1, JSON.stringify(sense[1].dt[0][1]).length - 1)%></p>
+			<%});%>
+	<%});%>
+	<div class="text-center">
+					<button class="btn btn-warning "><a href = "/"style="color: black;">Go back</a></button>
+
+	</div>
+
+</div>
+<%}catch(e){%>
+<div class = "text-center">
+		<p class="lead itemList ">OOPS! Error Connecting to API...</p>
+			<button class="btn btn-warning"><a href = "/" style="color: black;">Go back</a></button>
+
+</div>
+<%}%>
+<% include ../partials/footer%>

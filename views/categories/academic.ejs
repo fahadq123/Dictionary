@@ -1,0 +1,17 @@
+<% include ../partials/otherHeader%>
+
+<h1 class="rainbow-text"><span>Academic Life Slangs By Country</h1>
+
+<%slangs.forEach((slang)=>{%>
+	<div class="text-center">
+<h2 id="slangLogo" class="rainbow-text hvr-wobble-horizontal"><%= slang.country%>'s Slang</h2>	
+<h1></h1>
+<% slang.slangs.forEach((slang)=>{%>
+		<%if (slang.category == "AcademicLife"){%>
+	
+		<li id="itemList" class="hvr-wobble-horizontal"><p class = "lead itemList" ><b><%= slang.def%></b> - <%= slang.exp%></p></li><br>
+		<%}%>
+	<%})%>
+	</div>
+<%})%>
+<% include ../partials/footer%>

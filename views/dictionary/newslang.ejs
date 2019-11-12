@@ -1,0 +1,33 @@
+
+
+<% include ../partials/header2 %>
+<div class="container">
+    <div class="row">
+        <h1 style="text-align: center; margin-top:5%;">Add New Slang to <%=country.country.charAt(0).toUpperCase() + country.country.slice(1)%> list</h1>
+        <div style="width: 30%; margin: 25px auto;">
+            <form action="/<%= country._id%>/slangs" method="POST">
+                <div class="form-group">
+                    <input class="form-control" type="text" name="def" placeholder="Enter Slang Term" required>
+                </div>
+				<div class="form-group">
+                    <input class="form-control" type="text" name="exp" placeholder="Enter Definition" required>
+                </div>
+				                <div class="form-group">
+
+<select class="form-control" name="category" required>
+	    <option value="" disabled selected>Choose Category</option>
+		  <option value="AcademicLife">Academic Life</option>
+		  <option value="ExpressingYourself">Expressing Yourself</option>
+		  <option value="Outing">Going/Eating Out</option>
+</select>
+				</div>
+                <div class="form-group">
+                    <button class="btn btn-lg btn-success btn-block">Submit</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<% include ../partials/footer %>
+

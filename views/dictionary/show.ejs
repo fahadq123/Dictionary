@@ -1,0 +1,35 @@
+<% include ../partials/otherHeader%>
+
+<h1 class="rainbow-text" ><u><%= country.country.charAt(0).toUpperCase() + country.country.slice(1)%>'s Slang List</u></h1>
+<br>
+<div class="container">
+	<div class="row">
+		<div class="col-3"></div>
+	
+		<div class="col-6 text-center">
+		
+<ul>
+	<%country.slangs.forEach((slang)=>{%>
+	
+	
+	<li id="itemList" class="hvr-wobble-horizontal"><p class = "lead itemList" ><b><%= slang.def%></b> - <%= slang.exp%> - 
+		
+	<%if(slang.category == "AcademicLife"){%>
+		<a href="/<%= slang.category%>"><span style="color: red;">#<%= slang.category%></span></a></p></li><br>
+<%}else if(slang.category == "ExpressingYourself"){%>
+		<a href="/<%= slang.category%>"><span style="color: #74B0F2;">#<%= slang.category%></span></a></p></li><br>
+<%}else{%>
+		<a href="/<%= slang.category%>"><span style="color: green;">#<%= slang.category%></span></a></p></li><br>
+<%}})%>			
+</ul>
+<br>
+
+			
+			<button class="btn btn-warning"><a href = "/" class="rainbow-text">Go back</a></button>
+
+<button class="btn btn-success"><a class="rainbow-text" href = "/<%= country._id%>/slangs/new">Add Slang</a></button>
+
+</div>
+	<div class="col-3"></div>
+	</div>
+<% include ../partials/footer%>

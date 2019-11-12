@@ -1,0 +1,74 @@
+<% include ../partials/header%>
+	  <h1 class="rainbow-text">Welcome to Slang Dictionary</h1>
+
+<br>
+
+<div class="container">
+	<div class="row">
+		<div class="col-3"></div>
+	
+		<div class="col-6">
+		
+		
+			
+			
+			
+			
+			
+			
+<div class="dropdown text-center">
+  <button class="btn btn-default dropdown-toggle"  style = "width : 50%;" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+    Select Country
+    <span class="caret"></span>
+  </button>
+  <ul class="dropdown-menu text-center" style = "width : 50%; margin-left:25%" aria-labelledby="dropdownMenu1">
+	  <%countries.forEach((country)=>{%>
+    <li class="text-center"><a href="/<%=country._id%>/show"><%= country.country.charAt(0).toUpperCase() + country.country.slice(1)%></a></li>
+	  <%})%>
+	  <li role="separator" class="divider"></li>
+    <li class="text-center"  ><a href="/new"style = "color : green;">Add New Country</a></li>
+  </ul>
+</div>
+			
+			<div class="text-center">
+<div class='hr-or'></div>
+				
+				<div class="dropdown text-center">
+  <button class="btn btn-default dropdown-toggle"  style = "width : 50%;" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+    Search By Category
+    <span class="caret"></span>
+  </button>
+  <ul class="dropdown-menu text-center" style = "width : 50%; margin-left:25%" aria-labelledby="dropdownMenu1">
+    <li class="text-center"><a href="/AcademicLife" style="color: red;">Academic Life</a></li>
+	<li class="text-center"><a href="/ExpressingYourself" style="color: blue;">Expressing Yourself</a></li>
+	 <li class="text-center"><a href="/Outing" style="color: green;">Going/Eating Out</a></li>
+	   
+  </ul>
+</div>
+				<div class='hr-or'></div>
+				
+				
+				<form class="form-inline" action= "/wordSearch" method = "GET">
+
+				
+				
+					
+		<input  style="width : 44%;" type="text" class="form-control text-center" placeholder = "Search for a Word" name="word">
+
+<button type="submit" class="btn btn-secondary"> Search </button>
+				
+				</form>
+	
+	<br>
+	
+	
+
+			</div>
+		</div>
+	
+			<div class="col-3">
+		</div>
+	</div>
+</div>
+
+<% include ../partials/footer%>

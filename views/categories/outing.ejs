@@ -1,0 +1,18 @@
+
+<% include ../partials/otherHeader%>
+
+<h1 id="slangLogo" class="rainbow-text"><span>Going/Eating Out Slangs By Country</h1>
+
+<%slangs.forEach((slang)=>{%>
+	<div class="text-center">
+<h2 id="slangLogo" class="rainbow-text hvr-wobble-horizontal"><%= slang.country%>'s Slang</h2>	
+<h1></h1>
+<% slang.slangs.forEach((slang)=>{%>
+		<%if (slang.category == "Outing"){%>
+	
+		<li id="itemList" class="hvr-wobble-horizontal"><p class = "lead itemList" ><b><%= slang.def%></b> - <%= slang.exp%></p></li><br>
+		<%}%>
+	<%})%>
+	</div>
+<%})%>
+	<% include ../partials/footer%>
